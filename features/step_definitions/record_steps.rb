@@ -9,3 +9,13 @@ Given("the following DNS records:") do |table|
 
   Record.create!(records_attributes)
 end
+
+When("I query for DNS records with the following parameters:") do |table|
+  params = table.rows_hash
+
+  %w[hostnames except_hostnames].each do |param|
+    params[param] = params[param].split(', ') if params[param].present?
+  end
+
+  get '/records', params
+end

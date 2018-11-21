@@ -18,10 +18,10 @@ Feature: DNS Records management
         "records_count": 2,
         "records": [{
           "id": 1,
-          "ip": 1.1.1.1
+          "ip": "1.1.1.1"
         }, {
           "id": 3,
-          "ip": 3.3.3.3
+          "ip": "3.3.3.3"
         }],
         "hostnames": [{
           "name": "lorem.com",
