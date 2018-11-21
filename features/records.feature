@@ -1,5 +1,13 @@
 Feature: DNS Records management
 
+  Scenario: Adding DNS records
+    When I add the following DNS record:
+      | ip        | 1.1.1.1                                   |
+      | hostnames | amet.com, dolor.com, ipsum.com, lorem.com |
+    Then I should have the following DNS records:
+      | ip      | hostnames                                 |
+      | 1.1.1.1 | amet.com, dolor.com, ipsum.com, lorem.com |
+
   Scenario: Querying for records
     Given the following DNS records:
       | id | ip      | hostnames                                 |

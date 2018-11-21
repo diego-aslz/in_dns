@@ -12,6 +12,11 @@ class RecordsController < ApplicationController
   end
 
   def create
+    Record.transaction do
+      host_ids = params[:hostnames].map { |name| Host.find_or_create_by(name: name ).id }
+      @record = Record.new(ip: params[:ip], host_ids: host_ids)
+      @errors = @record.errors.full_messages unless @record.save
+    end
   end
 
   protected

@@ -11,6 +11,10 @@ class Record < ApplicationRecord
   end
 
   def has_hostname?(name)
-    hosts.map(&:name).include?(name)
+    hostnames.include?(name)
+  end
+
+  def hostnames
+    hosts.map(&:name)
   end
 end
