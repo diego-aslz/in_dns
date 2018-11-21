@@ -1,24 +1,7 @@
-# README
+# In-DNS
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This application provides two endpoints for adding and querying DNS records.
 
-Things you may want to cover:
+# Testing
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+We use Cucumber for testing. In order to run the tests, simply call `bundle exec cucumber`.
