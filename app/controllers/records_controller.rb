@@ -19,7 +19,7 @@ class RecordsController < ApplicationController
           # `find_or_create_by` is not threadsafe because a given thread B might create the Host X right after given
           # thread A checked for its existence. In that scenario, we're gonna get an ActiveRecord::RecordNotUnique
           # exception.
-          host_ids = params[:hostnames].map { |name| Host.find_or_create_by(name: name ).id }
+          host_ids = params[:hostnames].map { |name| Host.find_or_create_by(name: name).id }
         rescue ActiveRecord::RecordNotUnique
           # When a race condition happens, we just rollback this transaction and let the loop retry it.
           raise ActiveRecord::Rollback
