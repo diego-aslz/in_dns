@@ -29,5 +29,7 @@ module InDns
       g.javascripts false
       g.helper      false
     end
+
+    config.api_only = true
   end
 end
