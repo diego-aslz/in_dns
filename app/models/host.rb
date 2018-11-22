@@ -2,7 +2,7 @@ class Host < ApplicationRecord
   has_many :addresses, dependent: :destroy
   has_many :records, through: :addresses
 
-  validates :name, presence: true
+  validates :name, presence: true, uniqueness: true
 
   scope :by_name, ->(name) { where(name: name) }
 
