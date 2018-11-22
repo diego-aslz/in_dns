@@ -20,7 +20,7 @@ Feature: DNS Records management
       | hostnames        | ipsum.com, dolor.com |
       | except_hostnames | sit.com              |
       | page             | 1                    |
-    Then I should receive the following response:
+    Then I should receive an "OK" response with the following body:
       """
       {
         "records_count": 2,
@@ -39,4 +39,13 @@ Feature: DNS Records management
           "matching_records_count": 2
         }]
       }
+      """
+
+  Scenario: Querying for records without a page
+    When I query for DNS records with the following parameters:
+      | hostnames        | ipsum.com, dolor.com |
+      | except_hostnames | sit.com              |
+    Then I should receive a "BAD REQUEST" response with the following body:
+      """
+      { "error": "Missing \"page\" parameter" }
       """
